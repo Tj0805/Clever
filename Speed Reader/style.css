@@ -1,0 +1,35 @@
+body{
+background-color: #EAF6F6;
+  font-family: Garamond, sans-serif;
+  font-size: 12pt;
+}
+#input-text,#controls,h1{text-align: center;}
+
+#display {
+  width: 60%;
+  height:150px;
+  margin: 0 auto;
+  font-size: 36pt;
+  font-family: monospace;
+  line-height: 100px;
+  border: 2px solid #8EBEBE;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  text-align: center;
+  overflow: hidden;
+}
+
+p {
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #8EBEBE;
+  width: 100%;
+  padding: 2px;
+}
+fieldset {
+  display: inline-block;
+  vertical-align: top;
+  border: none;
+  margin: 0 auto;
+}
+

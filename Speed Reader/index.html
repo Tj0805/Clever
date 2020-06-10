@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+ <title> Flash Reader</title>
+    <link rel=stylesheet href="style.css">
+</head>
+<body>    
+    <h1>Flash Reader</h1>
+    
+    
+    
+    `
+<!--    this div shows the words-->
+    <div id="display"></div>
+<!--    user makes adjustments here-->
+    <div id="controls">
+    <fieldset>
+        <p>Play Controls:</p>
+        <button id="start" type="button">Start</button>
+        <button id="stop" type="button">Stop</button>
+     </fieldset>
+    
+    <fieldset>
+        <p>Speed:</p>
+        <select id="speed">
+          <option value="300">200 wpm</option>
+          <option value="200">300 wpm</option>
+          <option value="171" selected="selected">350 wpm</option>
+          <option value="150">400 wpm</option>
+          <option value="133">450 wpm</option>
+          <option value="120">500 wpm</option>
+        </select>
+     </fieldset>
+    
+    <fieldset>
+        <p>Size:</p>
+        <label>
+            <input id="36pt" type="radio" name="size" checked="checked"/>Medium
+        </label>
+         <label>
+             <input id="48pt" type="radio" name="size" />Bigger
+        </label>
+       <label>
+             <input id="60pt" type="radio" name="size" />Huge
+        </label>
+     </fieldset>
+    </div>
+    <br>
+    <br>
+    <div id="input-text">
+    <fieldset>
+      <p>Copy and Paste text below!</p>
+        <textarea id="strings" rows="5" cols="40">
+        Put Your Text In Here
+        </textarea>
+        
+        
+        
+    
+    </fieldset>
+    </div>
+    
+    
+</body>
+    
+
+</html>
