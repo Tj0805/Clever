@@ -19,13 +19,13 @@
       <fieldset>
           <p>Speed:</p>
           <select id="speed">
-          <option value="10000000000000" selected>-select speed-</option>
+          <option value="10000000000000">-select speed-</option>
           <option value="300">200 wpm</option>
           <option value="200">300 wpm</option>
           <option value="171">350 wpm</option>
           <option value="150">400 wpm</option>
           <option value="133">450 wpm</option>
-          <option value="120">500 wpm</option>
+          <option value="120" selected>500 wpm</option>
           </select>
       </fieldset>
       
@@ -107,10 +107,17 @@ window.onload = function(){
 	  if (data.length) {
 	    timer = setInterval(function() {
 	      reader.innerHTML = data[index++];
+        //so it stops at the last word and doesnt continue
+        if(index==data.length){
+          stop();
+        }
 	      index = index % data.length;
 	    }, CurrentSpeed);
+
+      
 	  }
 	}
+
 	function stop() {
 	  clearInterval(timer);
 	  timer = null;
