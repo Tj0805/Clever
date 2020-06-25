@@ -25,7 +25,7 @@
           <option value="171">350 wpm</option>
           <option value="150">400 wpm</option>
           <option value="133">450 wpm</option>
-          <option value="120" selected>500 wpm</option>
+          <option value="120" >500 wpm</option>
           </select>
       </fieldset>
       
@@ -82,7 +82,7 @@ window.onload = function(){
         
 	  runDisplay(list, "display", CurrentSpeed);
    }
-
+var timer;
 	function runDisplay(data, id, CurrentSpeed) {
 	  var reader = document.getElementById(id);
       var Medium=document.getElementById("Medium");
