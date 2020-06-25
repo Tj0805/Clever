@@ -11,46 +11,51 @@
     <div id="display"></div>
 <!--    user makes adjustments here-->
     <div id="controls">
-    <fieldset>
-        <p>Play Controls:</p>
-        <button id="start" type="button">Start</button>
-        <button id="stop" type="button">Stop</button>
-     </fieldset>
-    
-    <fieldset>
-        <p>Speed:</p>
-        <select id="speed">
-        <option value="300">200 wpm</option>
-        <option value="200">300 wpm</option>
-        <option value="171" selected="selected">350 wpm</option>
-        <option value="150">400 wpm</option>
-        <option value="133">450 wpm</option>
-        <option value="120">500 wpm</option>
-        </select>
-    </fieldset>
-    
-    <fieldset>
-        <p>Size:</p>
-        <label>
-            <input id="36pt" type="radio" name="size" checked="checked"/>Medium
-        </label>
-         <label>
-             <input id="48pt" type="radio" name="size" />Bigger
-        </label>
-       <label>
-             <input id="60pt" type="radio" name="size" />Huge
-        </label>
-     </fieldset>
+      <fieldset>
+          <p>Play Controls:</p>
+          <button id="start" type="button">Start</button>
+          <button id="stop" type="button">Stop</button>
+      </fieldset>
+      <fieldset>
+          <p>Speed:</p>
+          <select id="speed">
+          <option value="10000000000000" selected>-select speed-</option>
+          <option value="300">200 wpm</option>
+          <option value="200">300 wpm</option>
+          <option value="171">350 wpm</option>
+          <option value="150">400 wpm</option>
+          <option value="133">450 wpm</option>
+          <option value="120">500 wpm</option>
+          </select>
+      </fieldset>
+      
+      <fieldset>
+          <p>Size:</p>
+          <label>
+              <input id="Medium" type="radio" name="size" checked/>Medium
+          </label>
+            <label>
+               <input id="Bigger" type="radio" name="size"/>Bigger
+          </label>
+           <label>
+               <input id="Huge" type="radio" name="size" />Huge
+          </label>
+      </fieldset>
     </div>
+    
+    
+
+    
+    
 <!--    put these br tags instead of css, easier-->
     <br>
     <br>
 <!--    user enters text here, for program-->
     <div id="input-text">
-    <fieldset>
-      <p>Copy and Paste text below!</p>
-        <textarea id="strings" rows="5" cols="40" placeholder="Put Your Text In Here"></textarea>
-    </fieldset>
+      <fieldset>
+        <p>Copy and Paste text below!</p>
+          <textarea id="strings" rows="5" cols="40" placeholder="Put Your Text In Here">This sidebar is as tall as its content (the links), and is always shown. Scroll this window to see the "fixed" effect.</textarea>
+      </fieldset>
     </div> 
 </body>
     
@@ -63,20 +68,38 @@ window.onload = function(){
 	  stopButton.onclick = stop;
 	}
 
-	var timer;
-	var Speed = document.getElementById("speed");
-	var CurrentSpeed = Speed.options[Speed.selectedIndex].value;
-  
 
+	var timer;
+	
 	function start() {
-	  var text = document.getElementById("strings").value;
-	  var list = text.split(" ");
-	  runDisplay(list, "display");
+
+	   var text = document.getElementById("strings").value;
+	   var list = text.split(" ");
+      var Speed = document.getElementById("speed");
+      var CurrentSpeed = Speed.options[Speed.selectedIndex].value;
+      
+
+        
+	  runDisplay(list, "display", CurrentSpeed);
    }
 
-	function runDisplay(data, id) {
+	function runDisplay(data, id, CurrentSpeed) {
 	  var reader = document.getElementById(id);
-	  var index = 0;
+      var Medium=document.getElementById("Medium");
+      var Bigger=document.getElementById("Bigger");
+      var Huge=document.getElementById("Huge");
+      if(Medium.checked==true){
+        reader.style.fontSize="36pt";
+      }
+      else if(Bigger.checked==true){
+        reader.style.fontSize="50pt";
+      }
+      else{
+        reader.style.fontSize="70pt";
+      }
+
+
+      var index = 0;
 	  // clear any prior timer so we never have more than one
 	  if (timer) {
 	    clearInterval(timer);
@@ -93,6 +116,4 @@ window.onload = function(){
 	  timer = null;
 	}    
 </script>
-    
-
 </html>
