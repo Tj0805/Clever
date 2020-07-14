@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="wrapper">
+
+
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>CLEVERKIDS</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Welcome To Clever</p>
+                <li class="active">
+                    <a href="#gamesSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Games</a>
+                    <ul class="collapse list-unstyled" id="gamesSubmenu">
+                        <li>
+                            <a href="speedreader.html">Speed Reader</a>
+                        </li>
+                        <li>
+                            <a href="hangman.html">Hang Man</a>
+                        </li>
+                        <li>
+                            <a href="maths.html">Maths Game</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a href="#">Points</a>
+                </li> -->
+
+            </ul>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#" class="nav-link " id="logout">Logout</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="content">
+
+
+
+            <div id="game">
+                <span id="need"></span><br>
+                <span id="first"></span><span id="second"></span><br /><span id="answer"></span>
+                <input id="useranswer" type="text" maxlength="3" onclick="value=''">
+                <p id="p">Just press Enter to submit your answer.</p>
+                <p id="p2">Watch for the time below!</p>
+                <div id="counttill"><span id="timer"></span></div>
+
+            </div>
+        </div>
+        <div id="resultEnd">
+            <span class="resultEnd"></span>
+
+        </div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $("#start").hide();
+        $("#game").hide();
+        $("#resultEnd").hide();
+        $("#first,#second,#answer").hide();
+
+        //variables for the results
+        var correct = 0;
+        var incorrect = 0;
+        var timer = 60; //timer for the game
+        var points = 0;
+
+        game
+            (); //the game process. It generates any number lower than 100. It will keep going until the timer hits 0.
+        $("#go").click(function add() {}); //go !
+        function game() {
+            var answer = $("#useranswer").val();
+            var ans = parseInt(answer);
+            var num1 = Math.floor(Math.random() * 100);
+            var num2 = Math.floor(Math.random() * 100);
+            var result = num1 + num2;
+            $("#first").text(num1); //first means the first number etc.
+            $("#second").text(num2);
+            $("#answer").text(result);
+            $("#need").text(num1 + " + " + num2)
+        }; //game();
+
+        setTimeout(function () {
+            $("#game").show();
+            countup = setInterval(function () {
+                timer -= 1;
+                $("#timer").text("Timer - " + "00:" + timer);
+                if (timer <= 0) {
+                    $(".resultEnd").html("Your score percentage: " + (Math.floor((correct *
+                            100) / (correct +
+                            incorrect))) + "%" + "<br>Correct: " + correct +
+                        "<br>Incorrect: " + incorrect +
+                        "<br> Points Allocated: " + points +
+                        "<br>Number of questions attempted: " + (correct + incorrect));
+                    clearInterval(countup);
+                    $("#timer").text("00:00");
+                    $("#useranswer").hide();
+                    $("#need").hide();
+                    $("#p").hide();
+                    $("#p2").hide();
+                    $("#resultEnd").show(); //results page will show them timer is = 0.
+                }
+            }, 1000);
+        }, 4100);
+
+
+        $('#useranswer').keypress(function (e) {
+            if (e.which == 13) { //==13 because the keycode for enter in keyboardEvent is 13
+                var number1 = $("#first").text();
+                var number2 = $("#second").text();
+                var number3 = $("#useranswer").val();
+                var n1 = parseInt(number1);
+                var n2 = parseInt(number2);
+                var n3 = parseInt(number3);
+                var n4 = n1 + n2;
+                if (n3 == n4) {
+                    correct++;
+                    points++;
+                } else {
+                    incorrect++;
+                }
+                game();
+                $(this).val("");
+            } //if
+        }); //keypress
+    });
+</script>
+
+
+
+</div>
+
+</div>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.6/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script src="/__/firebase/7.14.5/firebase-auth.js"></script>
+<script src="/__/firebase/7.14.5/firebase-firestore.js"></script>
+<script src="/__/firebase/7.14.5/firebase-functions.js"></script>
+
+<script src="/__/firebase/7.14.6/firebase-analytics.js"></script>
+
+
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/dauth.js"></script>
+<script src="js/modules.js"></script>
+
+</body>
+
+</html>

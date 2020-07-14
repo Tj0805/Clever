@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="wrapper">
+
+
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>CLEVERKIDS</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Welcome To Clever</p>
+                <li class="active">
+                    <a href="#gamesSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Games</a>
+                    <ul class="collapse list-unstyled" id="gamesSubmenu">
+                        <li>
+                            <a href="speedreader.html">Speed Reader</a>
+                        </li>
+                        <li>
+                            <a href="hangman.html">Hang Man</a>
+                        </li>
+                        <li>
+                            <a href="maths.html">Maths Game</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li>
+                    <a href="#">Points</a>
+                </li> -->
+
+            </ul>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#" class="nav-link " id="logout">Logout</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="content">
+            <h1>Flash Reader</h1>
+            <!--    this div shows the words-->
+            <div id="display"></div>
+            <!--    user makes adjustments here-->
+
+            <div id="controls">
+                <fieldset>
+                    <p>Play Controls:</p>
+                    <button id="start" type="button">Start</button>
+                    <button id="stop" type="button">Stop</button>
+                </fieldset>
+                <fieldset>
+                    <p>Speed:</p>
+                    <select id="speed">
+                        <option value="10000000000000" selected>-select speed-</option>
+                        <option value="300">200 wpm</option>
+                        <option value="200">300 wpm</option>
+                        <option value="171">350 wpm</option>
+                        <option value="150">400 wpm</option>
+                        <option value="133">450 wpm</option>
+                        <option value="120">500 wpm</option>
+                    </select>
+                </fieldset>
+                <!-- to change size of text -->
+                <fieldset>
+                    <p>Size:</p>
+                    <label>
+                        <input id="Medium" type="radio" name="size" checked />Medium
+                    </label>
+                    <label>
+                        <input id="Bigger" type="radio" name="size" />Bigger
+                    </label>
+                    <label>
+                        <input id="Huge" type="radio" name="size" />Huge
+                    </label>
+                </fieldset>
+            </div>
+
+            <!--    put these br tags instead of css, easier-->
+            <br>
+            <br>
+            <!--    user enters text here, for program to split and display -->
+            <div id="input-text">
+                <fieldset>
+                    <p>Copy and Paste text below!</p>
+                    <textarea id="strings" rows="5" cols="40" placeholder="Put Your Text In Here"></textarea>
+                </fieldset>
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.6/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="/__/firebase/7.14.5/firebase-auth.js"></script>
+    <script src="/__/firebase/7.14.5/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.14.5/firebase-functions.js"></script>
+
+    <script src="/__/firebase/7.14.6/firebase-analytics.js"></script>
+
+
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/dauth.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/SpreederFunction.js"></script>
+</body>
+
+</html>

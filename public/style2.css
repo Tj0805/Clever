@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300|Lato|Oswald:400,300|Montserrat|Poiret+One);
+
+body,
+html {
+  background: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#menu {
+  width: 100%;
+  height: 60px;
+  background: #1a1a1a;
+
+}
+
+
+.menu {
+  background: none;
+  height: 40px;
+  margin: 10px;
+  border: solid 2px #fff;
+  font-family: Arial;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.menu:hover {
+  background: #fff;
+  color: #111;
+}
+
+.left {
+  float: right;
+}
+
+.game {
+  margin-top: 10px;
+}
+
+
+#need {
+  margin-top: 10%;
+  font-family: Arial;
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  display: block;
+  text-align: center;
+}
+
+#answer,
+#first,
+#second {
+  visibility: hidden;
+}
+
+input {
+  width: 50%;
+  height: 80px;
+  margin: 40px 0 0 25%;
+  border-radius: 25px;
+  font-family: Arial;
+  text-align: center;
+  font-size: 200%;
+}
+
+input:hover {
+  background: silver;
+  color: #1e1e1e;
+}
+
+#counttill {
+
+  height: 40px;
+
+
+  position: relative;
+
+
+}
+
+#timer {
+  color: black;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size: large;
+}
+
+.resultEnd {
+
+  color: black;
+  font-size: 20px;
+
+  text-align: center;
+  text-transform: Capitalize;
+  display: block;
+}
+
+p {
+  text-align: center;
+}
+
+.game {
+  top: 50%;
+  bottom: 50%;
+  position: fixed;
+}
